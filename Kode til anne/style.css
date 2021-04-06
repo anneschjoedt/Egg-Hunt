@@ -1,0 +1,14 @@
+/*https://www.freecodecamp.org/news/css-unit-guide/*/
+#mapid {
+  height: 90vh;
+  width: 90vw;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: 20px;
+}
