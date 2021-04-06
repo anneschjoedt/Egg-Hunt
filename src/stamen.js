@@ -41,7 +41,7 @@ var easterEgg = new ClassIcon({
 
 // mangler at indsætte chicken legg
 var locationEgg = new ClassIcon({
-  iconUrl: "img/",
+  iconUrl: "img/leg.svg",
 });
 
 // variable containg a marker that can be dragged
@@ -70,7 +70,7 @@ var myId = "abc"; // My user id
 var marker = {
   abc: L.marker([51.441767, 5.470247], {
     draggable: true,
-    autoPan: true,
+    autoPan: false,
     icon: locationEgg,
   }).addTo(map),
 };
@@ -84,7 +84,32 @@ map.on("locationfound", function (e) {
     map.removeLayer(marker[myId]);
     console.log("layer is removed");
   }
-  marker[myId] = L.marker(e.latlng).addTo(map).bindPopup("You are here!");
+  marker[myId] = L.marker(e.latlng, {
+    draggable: true,
+    autoPan: false,
+    icon: locationEgg,
+  })
+    .addTo(map)
+    .bindPopup("You are here!");
+
+  circles.forEach(function (circle) {
+    // distance d in meters between the current position of the marker and the center of the circle
+    var d = map.distance(e.latlng, circle.getLatLng());
+    console.log("d :", d);
+    // the marker is inside the circle when the distance is less than the radius
+    var isInside = d < circle.getRadius() + 50;
+    console.log(circle.getRadius());
+
+    if (isInside) {
+      openPopup(e);
+      L.marker(circle.getLatLng(), {
+        icon: easterEgg,
+        autoPan: true,
+      })
+        .addTo(map)
+        .bindPopup(dataMessages[getRandomInt(0, 3)]);
+    }
+  });
 });
 //if there is a location error, run "onLocationError"
 map.on("locationerror", onLocationError);
@@ -97,7 +122,7 @@ function onLocationError(e) {
 var circles = [];
 // add a cicrcle to place 0 in the array
 circles[0] = L.circle([55.696326, 12.506818], {
-  color: "transparent",
+  color: "red",
   fillColor: "transparent",
   //fillOpacity: 0.5,
   radius: 200,
@@ -118,8 +143,8 @@ circles[2] = L.circle([55.70084, 12.5443], {
 }).addTo(map);
 // add a cicrcle to place 3 in the array
 circles[3] = L.circle([55.66323, 12.57472], {
-  color: "transparent",
-  fillColor: "transparent",
+  color: "red",
+  fillColor: "red",
   //fillOpacity: 0.5,
   radius: 200,
 }).addTo(map);
@@ -128,7 +153,7 @@ function openPopup(e) {
   var popup = L.popup()
     .setLatLng(e.latlng)
     .setContent(
-      "<h2>EGGCITING NEWS! YOU'VE FOUND AN EGG</h2><p>Click on the egg to reveal it's secret</p><button>Continue</button>"
+      "<h2>EGGCITING NEWS! YOU'VE FOUND AN EGG</h2><p>Click on the egg to reveal it's secret</p>"
     )
     .openOn(map);
 }
@@ -160,7 +185,7 @@ Chicken.on("drag", function (e) {
         autoPan: true,
       })
         .addTo(map)
-        .bindPopup(dataMessages[getRandomInt(0, 4)]);
+        .bindPopup(dataMessages[getRandomInt(0, 3)]);
     }
   });
 });
