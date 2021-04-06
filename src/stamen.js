@@ -57,35 +57,41 @@ var Chicken = L.marker([55.676098, 12.568337], {
 var markerArray = [];
 
 //finds current location of the device
-// map.locate({
-//   watch: true,
-//   enableHighAccuracy: true,
-//   setView: false,
-//   maxZoom: 18,
-// });
+map.locate({
+  watch: true,
+  enableHighAccuracy: true,
+  setView: false,
+  maxZoom: 18,
+});
 
-// var myId = "abc"; // My user id
-// var marker = {
-//   abc: L.marker([51.441767, 5.470247]).addTo(map),
-// };
+var myId = "abc"; // My user id
+
+// locationEgg - ved ikke om det virker hehe
+var marker = {
+  abc: L.marker([51.441767, 5.470247], {
+    draggable: true,
+    autoPan: true,
+    icon: locationEgg,
+  }).addTo(map),
+};
 
 //when the location is found, run the function "onLocationFound"
-// map.on("locationfound", function (e) {
-//   // find the range of event (e) and create a radius:
-//   var radius = e.accuracy * 20;
+map.on("locationfound", function (e) {
+  // find the range of event (e) and create a radius:
+  var radius = e.accuracy * 20;
 
-//   if (marker.length != 0) {
-//     map.removeLayer(marker[myId]);
-//     console.log("layer is removed");
-//   }
-//   marker[myId] = L.marker(e.latlng).addTo(map).bindPopup("You are here!");
-// });
-// //if there is a location error, run "onLocationError"
-// map.on("locationerror", onLocationError);
+  if (marker.length != 0) {
+    map.removeLayer(marker[myId]);
+    console.log("layer is removed");
+  }
+  marker[myId] = L.marker(e.latlng).addTo(map).bindPopup("You are here!");
+});
+//if there is a location error, run "onLocationError"
+map.on("locationerror", onLocationError);
 
-// function onLocationError(e) {
-//   alert(e.message);
-// }
+function onLocationError(e) {
+  alert(e.message);
+}
 
 // array called circles
 var circles = [];
@@ -144,7 +150,7 @@ Chicken.on("drag", function (e) {
     var d = map.distance(e.latlng, circle.getLatLng());
     console.log("d :", d);
     // the marker is inside the circle when the distance is less than the radius
-    var isInside = d < circle.getRadius()+50;
+    var isInside = d < circle.getRadius() + 50;
     console.log(circle.getRadius());
 
     if (isInside) {
@@ -156,7 +162,11 @@ Chicken.on("drag", function (e) {
         .addTo(map)
         .bindPopup(dataMessages[getRandomInt(0, 4)]);
     }
-
-
   });
 });
+
+function pickAnAvatar(pickedAvatar) {
+  avatar = pickedAvatar;
+  console.log(avatar);
+  sessionStorage.setItem("avatar", avatar);
+}
