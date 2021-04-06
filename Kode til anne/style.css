@@ -7,8 +7,11 @@
 body {
   display: flex;
   justify-content: center;
+  background-image: url("eggFrame.png");
+  
 }
 
 p {
   font-size: 20px;
 }
+
