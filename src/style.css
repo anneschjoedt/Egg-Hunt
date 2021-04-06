@@ -1,0 +1,21 @@
+/*https://www.freecodecamp.org/news/css-unit-guide/*/
+#mapid {
+  height: 90vh;
+  width: 90vw;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: 15px;
+}
+
+li {
+  list-style-image: url("img/magnifier.png");
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 0.5em;
+}
