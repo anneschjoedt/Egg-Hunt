@@ -25,21 +25,13 @@ var dataMessages = [
 
 // make objects from the class
 var ufoIcon = new ClassIcon({
-    iconUrl: "img/chicken.svg",
-  }),
-  ufo1Icon = new ClassIcon({
-    iconUrl: "img/ufo1.png",
-  });
-
-ufo3Icon = new ClassIcon({
-  iconUrl: "img/ufo3.png",
+  iconUrl: getAvatar(),
 });
 
 var easterEgg = new ClassIcon({
   iconUrl: "img/easter_egg.svg",
 });
 
-// mangler at indsætte chicken legg
 var locationEgg = new ClassIcon({
   iconUrl: "img/leg.svg",
 });
@@ -141,8 +133,8 @@ circles[2] = L.circle([55.70084, 12.5443], {
   //fillOpacity: 0.5,
   radius: 200,
 }).addTo(map);
-// add a cicrcle to place 3 in the array
-circles[3] = L.circle([55.66323, 12.57472], {
+// add a cicrcle to place 3 in the array - Falkoner
+circles[3] = L.circle([55.68356, 12.53664], {
   color: "red",
   fillColor: "red",
   //fillOpacity: 0.5,
@@ -190,8 +182,15 @@ Chicken.on("drag", function (e) {
   });
 });
 
+var avatar;
+
 function pickAnAvatar(pickedAvatar) {
   avatar = pickedAvatar;
   console.log(avatar);
   sessionStorage.setItem("avatar", avatar);
+}
+
+function getAvatar() {
+  var pickedAvatar = sessionStorage.getItem("avatar");
+  return "img/avatars/" + pickedAvatar;
 }
