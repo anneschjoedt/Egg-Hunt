@@ -10,26 +10,23 @@
 <style>
     body {
         display: flex;
+        flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         height: 100vh;
         width: 100vw;
     }
 
     #avatar-div {
-        height: 99vh;
-        width: 99vw;
         display: flex;
         align-items: center;
-        background-image: url('img/background.png');
-        background-size: contain;
-        background-repeat: no-repeat;
     }
 
     #avatar-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 2em 1em 5em 1em;
+        padding: 1em 1em 1em 1em;
         border: 1em solid #ECE280;
         border-radius: 2em;
     }
@@ -80,8 +77,8 @@
 </style>
 
 <body>
+    <img src="img/MathildesrammeTOP.png">
     <div id="avatar-div">
-
         <div id="avatar-container">
             <h1>Pick a chicken to help you on your quest</h1>
             <form action="/src/index.html">
@@ -94,6 +91,7 @@
             </form>
         </div>
     </div>
+    <img src="img/MathildesrammeBUND.png">
     <script src="script.js"></script>
 </body>
 
