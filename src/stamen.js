@@ -115,7 +115,7 @@ function onLocationError(e) {
 var circles = [];
 // add a cicrcle to place 0 in the array
 circles[0] = L.circle([55.696326, 12.506818], {
-  color: "red",
+  color: "transparent",
   fillColor: "transparent",
   //fillOpacity: 0.5,
   radius: 200,
@@ -136,8 +136,8 @@ circles[2] = L.circle([55.70084, 12.5443], {
 }).addTo(map);
 // add a cicrcle to place 3 in the array - Falkoner
 circles[3] = L.circle([55.68356, 12.53664], {
-  color: "red",
-  fillColor: "red",
+  color: "transparent",
+  fillColor: "transparent",
   //fillOpacity: 0.5,
   radius: 200,
 }).addTo(map);
