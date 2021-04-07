@@ -1,7 +1,7 @@
 /*https://www.freecodecamp.org/news/css-unit-guide/*/
 #mapid {
-  height: 90vh;
-  width: 90vw;
+  height: 99vh;
+  width: 99vw;
 }
 
 body {
@@ -10,7 +10,11 @@ body {
 }
 
 p {
-  font-size: 15px;
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 li {
@@ -18,4 +22,19 @@ li {
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 0.5em;
+}
+
+.leaflet-popup-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #f4f4ef;
+  color: black;
+  border: 1em solid #ece280;
+}
+
+.leaflet-popup-content {
+}
+
+.leaflet-popup-tip-container {
+  display: none;
 }

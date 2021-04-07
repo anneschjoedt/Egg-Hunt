@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #avatar-div {
+        height: 99vh;
+        width: 99vw;
+        display: flex;
+        align-items: center;
+        background-image: url('img/background.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #avatar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em 1em 5em 1em;
+        border: 1em solid #ECE280;
+        border-radius: 2em;
+    }
+
+    .avatar-btn {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        border-radius: 8px;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        object-fit: scale-down;
+        background: white;
+        background-repeat: no-repeat;
+        font-family: Courier New, Courier New, monospace;
+        font-weight: bold;
+        height: 100px;
+        width: 100px;
+        outline: none;
+    }
+
+    #chicken-in-egg {
+        background-image: url('img/avatars/chicken-in-egg3.svg')
+    }
+
+    #chicken-in-egg2 {
+        background-image: url('img/avatars/chicken-in-egg2.svg')
+    }
+
+    #hen {
+        background-image: url('img/avatars/hen.svg')
+    }
+
+    #chicken-in-egg3 {
+        background-image: url('img/avatars/chicken-in-egg.svg')
+    }
+
+    #chicken-leg {
+        background-image: url('img/leg.svg')
+    }
+
+    #spejl-egg {
+        background-image: url('img/avatars/egg.svg')
+    }
+</style>
+
+<body>
+    <div id="avatar-div">
+
+        <div id="avatar-container">
+            <h1>Pick a chicken to help you on your quest</h1>
+            <form action="/src/index.html">
+                <button id="chicken-in-egg" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+                <button id="chicken-in-egg2" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+                <button id="hen" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+                <button id="chicken-in-egg3" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+                <button id="chicken-leg" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+                <button id="spejl-egg" class="avatar-btn" onclick="pickAnAvatar(id)"></button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
