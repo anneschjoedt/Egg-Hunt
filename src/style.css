@@ -31,10 +31,6 @@ li {
   color: black;
   border: 1em solid #ece280;
 }
-
-.leaflet-popup-content {
-}
-
 .leaflet-popup-tip-container {
   display: none;
 }
