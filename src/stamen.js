@@ -128,7 +128,7 @@ circles[1] = L.circle([55.536326, 12.446818], {
   radius: 250,
 }).addTo(map);
 // add a cicrcle to place 2 in the array
-circles[2] = L.circle([55.70084, 12.5443], {
+circles[2] = L.circle([57.57367, 10.00052], {
   color: "transparent",
   fillColor: "transparent",
   //fillOpacity: 0.5,
